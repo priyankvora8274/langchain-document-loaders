@@ -1,0 +1,51 @@
+order_id,order_date,customer_id,customer_name,product_category,product_name,quantity,unit_price_usd,order_status,payment_method,shipping_city,customer_review
+ORD-0001,2026-10-14,CUST-010,Jordan Lee,Fitness,Yoga Mat,3,21.75,Shipped,PayPal,Denver,Delivery took longer than expected.
+ORD-0002,2026-10-04,CUST-001,Taylor Reed,Home,Desk Lamp,4,32.00,Cancelled,Debit Card,Denver,
+ORD-0003,2026-10-21,CUST-013,Taylor Reed,Home,Desk Lamp,1,32.00,Shipped,Credit Card,Austin,Delivery took longer than expected.
+ORD-0004,2026-10-18,CUST-007,Jordan Lee,Fitness,Yoga Mat,1,21.75,Delivered,Debit Card,Chicago,Arrived on time and works well.
+ORD-0005,2026-10-28,CUST-016,Jamie Chen,Fitness,Yoga Mat,2,21.75,Cancelled,PayPal,Seattle,Arrived on time and works well.
+ORD-0006,2026-10-12,CUST-019,Alex Morgan,Books,Python Fundamentals,3,45.00,Delivered,Debit Card,Seattle,Product quality exceeded expectations.
+ORD-0007,2026-10-01,CUST-013,Taylor Reed,Kitchen,Coffee Grinder,1,58.00,Shipped,Credit Card,Denver,Packaging was slightly damaged.
+ORD-0008,2026-10-09,CUST-003,Jordan Lee,Electronics,Wireless Mouse,2,24.99,Shipped,Debit Card,Seattle,Packaging was slightly damaged.
+ORD-0009,2026-10-06,CUST-011,Alex Morgan,Home,Desk Lamp,3,32.00,Processing,Credit Card,Dallas,
+ORD-0010,2026-10-01,CUST-015,Jamie Chen,Home,Desk Lamp,3,32.00,Cancelled,PayPal,Dallas,Delivery took longer than expected.
+ORD-0011,2026-10-10,CUST-009,Alex Morgan,Electronics,USB-C Hub,4,39.50,Delivered,PayPal,Denver,Product quality exceeded expectations.
+ORD-0012,2026-10-05,CUST-013,Casey Patel,Office,Notebook Set,4,12.99,Shipped,Credit Card,Seattle,Good value for the price.
+ORD-0013,2026-10-04,CUST-007,Alex Morgan,Office,Notebook Set,3,12.99,Processing,Debit Card,Dallas,Good value for the price.
+ORD-0014,2026-10-03,CUST-010,Jordan Lee,Books,Python Fundamentals,4,45.00,Cancelled,Credit Card,Denver,Arrived on time and works well.
+ORD-0015,2026-10-21,CUST-008,Taylor Reed,Fitness,Yoga Mat,3,21.75,Shipped,Debit Card,Dallas,Delivery took longer than expected.
+ORD-0016,2026-10-19,CUST-013,Casey Patel,Books,Python Fundamentals,2,45.00,Cancelled,PayPal,Chicago,Arrived on time and works well.
+ORD-0017,2026-10-25,CUST-007,Taylor Reed,Books,Python Fundamentals,4,45.00,Processing,Credit Card,Seattle,Product quality exceeded expectations.
+ORD-0018,2026-10-24,CUST-019,Sam Rivera,Electronics,Wireless Mouse,4,24.99,Delivered,Debit Card,Denver,Good value for the price.
+ORD-0019,2026-10-08,CUST-020,Jordan Lee,Fitness,Yoga Mat,3,21.75,Shipped,Credit Card,Seattle,"Easy to use, would recommend."
+ORD-0020,2026-10-15,CUST-019,Alex Morgan,Home,Desk Lamp,1,32.00,Delivered,Credit Card,Denver,Delivery took longer than expected.
+ORD-0021,2026-10-25,CUST-006,Casey Patel,Fitness,Yoga Mat,4,21.75,Cancelled,PayPal,Austin,Product quality exceeded expectations.
+ORD-0022,2026-10-16,CUST-015,Alex Morgan,Fitness,Yoga Mat,3,21.75,Processing,Credit Card,Dallas,
+ORD-0023,2026-10-11,CUST-011,Taylor Reed,Books,Python Fundamentals,1,45.00,Processing,Credit Card,Denver,Delivery took longer than expected.
+ORD-0024,2026-10-01,CUST-001,Alex Morgan,Office,Notebook Set,4,12.99,Processing,PayPal,Austin,
+ORD-0025,2026-10-25,CUST-001,Casey Patel,Electronics,Wireless Mouse,2,24.99,Delivered,Debit Card,Dallas,"Easy to use, would recommend."
+ORD-0026,2026-10-24,CUST-018,Alex Morgan,Electronics,Wireless Mouse,2,24.99,Processing,Debit Card,Seattle,Packaging was slightly damaged.
+ORD-0027,2026-10-19,CUST-014,Casey Patel,Fitness,Yoga Mat,1,21.75,Processing,Credit Card,Dallas,Delivery took longer than expected.
+ORD-0028,2026-10-28,CUST-010,Jordan Lee,Office,Notebook Set,3,12.99,Delivered,Debit Card,Austin,Product quality exceeded expectations.
+ORD-0029,2026-10-08,CUST-016,Jordan Lee,Kitchen,Coffee Grinder,4,58.00,Delivered,Debit Card,Austin,Arrived on time and works well.
+ORD-0030,2026-10-14,CUST-010,Jamie Chen,Office,Notebook Set,2,12.99,Cancelled,Debit Card,Austin,Good value for the price.
+ORD-0031,2026-10-26,CUST-019,Taylor Reed,Fitness,Yoga Mat,3,21.75,Delivered,Debit Card,Chicago,Product quality exceeded expectations.
+ORD-0032,2026-10-25,CUST-017,Sam Rivera,Books,Python Fundamentals,2,45.00,Shipped,Credit Card,Denver,Product quality exceeded expectations.
+ORD-0033,2026-10-16,CUST-010,Casey Patel,Home,Desk Lamp,1,32.00,Shipped,Credit Card,Austin,
+ORD-0034,2026-10-14,CUST-018,Jordan Lee,Electronics,USB-C Hub,4,39.50,Shipped,Debit Card,Austin,"Easy to use, would recommend."
+ORD-0035,2026-10-17,CUST-007,Jordan Lee,Home,Desk Lamp,1,32.00,Delivered,Debit Card,Chicago,Arrived on time and works well.
+ORD-0036,2026-10-03,CUST-017,Casey Patel,Books,Python Fundamentals,2,45.00,Shipped,Credit Card,Seattle,Arrived on time and works well.
+ORD-0037,2026-10-11,CUST-015,Jordan Lee,Home,Desk Lamp,2,32.00,Shipped,PayPal,Seattle,Packaging was slightly damaged.
+ORD-0038,2026-10-28,CUST-011,Sam Rivera,Books,Python Fundamentals,2,45.00,Cancelled,Credit Card,Seattle,Good value for the price.
+ORD-0039,2026-10-07,CUST-018,Jordan Lee,Electronics,USB-C Hub,4,39.50,Cancelled,Debit Card,Dallas,Packaging was slightly damaged.
+ORD-0040,2026-10-21,CUST-007,Jordan Lee,Books,Python Fundamentals,1,45.00,Delivered,PayPal,Denver,Arrived on time and works well.
+ORD-0041,2026-10-22,CUST-016,Casey Patel,Home,Desk Lamp,4,32.00,Processing,PayPal,Seattle,"Easy to use, would recommend."
+ORD-0042,2026-10-06,CUST-014,Taylor Reed,Kitchen,Coffee Grinder,2,58.00,Shipped,Debit Card,Austin,Good value for the price.
+ORD-0043,2026-10-21,CUST-013,Alex Morgan,Kitchen,Coffee Grinder,4,58.00,Shipped,Debit Card,Denver,
+ORD-0044,2026-10-19,CUST-016,Jamie Chen,Electronics,USB-C Hub,4,39.50,Delivered,Credit Card,Austin,"Easy to use, would recommend."
+ORD-0045,2026-10-13,CUST-008,Jamie Chen,Kitchen,Coffee Grinder,4,58.00,Cancelled,Debit Card,Seattle,
+ORD-0046,2026-10-23,CUST-008,Jordan Lee,Kitchen,Coffee Grinder,4,58.00,Shipped,Credit Card,Chicago,Arrived on time and works well.
+ORD-0047,2026-10-04,CUST-014,Jamie Chen,Books,Python Fundamentals,4,45.00,Delivered,Credit Card,Chicago,Arrived on time and works well.
+ORD-0048,2026-10-16,CUST-005,Taylor Reed,Home,Desk Lamp,2,32.00,Processing,Credit Card,Dallas,
+ORD-0049,2026-10-10,CUST-015,Alex Morgan,Electronics,Wireless Mouse,1,24.99,Processing,PayPal,Seattle,Product quality exceeded expectations.
+ORD-0050,2026-10-21,CUST-013,Sam Rivera,Home,Desk Lamp,3,32.00,Delivered,PayPal,Dallas,Delivery took longer than expected.
