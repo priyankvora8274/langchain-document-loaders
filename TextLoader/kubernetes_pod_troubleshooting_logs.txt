@@ -1,0 +1,73 @@
+# SYNTHETIC KUBERNETES TROUBLESHOOTING LOGS — FOR LLM TESTING
+# Cluster: prod-us-central1 | Namespace: payments | Deployment: payment-api
+# Pod: payment-api-7d9f8c6b54-k2mqp | Container: api | Node: worker-03
+# Workload: Python FastAPI + SQLAlchemy + PostgreSQL
+# All names, addresses, and events below are fictional.
+
+2026-11-13T14:02:01.103Z INFO  [payment-api] Starting server version=2.8.1 pid=1 workers=4
+2026-11-13T14:02:02.004Z INFO  [payment-api] Config loaded DB_POOL_SIZE=20 DB_MAX_OVERFLOW=10 DB_POOL_TIMEOUT=5s
+2026-11-13T14:02:02.106Z INFO  [payment-api] Listening on 0.0.0.0:8080
+2026-11-13T14:02:05.017Z INFO  [health] GET /ready 200 duration_ms=8
+2026-11-13T14:03:11.142Z INFO  [http] POST /v1/payments 201 duration_ms=72 request_id=req-1001
+2026-11-13T14:03:25.019Z INFO  [http] POST /v1/payments 201 duration_ms=88 request_id=req-1002
+2026-11-13T14:04:00.010Z WARN  [db] Active connections=19 idle=1 pool_size=20 overflow=0
+2026-11-13T14:04:08.702Z WARN  [db] Slow query duration_ms=3102 query=SELECT_payment_by_id
+2026-11-13T14:04:20.013Z WARN  [db] Active connections=20 idle=0 pool_size=20 overflow=8
+2026-11-13T14:04:25.888Z ERROR [db] sqlalchemy.exc.TimeoutError: QueuePool limit of size 20 overflow 10 reached, connection timed out, timeout 5.00
+2026-11-13T14:04:25.889Z ERROR [http] POST /v1/payments 500 duration_ms=5044 request_id=req-1055
+2026-11-13T14:04:26.110Z ERROR [payment-service] Traceback (most recent call last):
+2026-11-13T14:04:26.110Z ERROR [payment-service]   File "/app/services/payment_service.py", line 87, in create_payment
+2026-11-13T14:04:26.110Z ERROR [payment-service]     with session_factory() as session: session.execute(statement)
+2026-11-13T14:04:26.110Z ERROR [payment-service]   File "/usr/local/lib/python3.11/site-packages/sqlalchemy/pool/impl.py", line 178, in _do_get
+2026-11-13T14:04:26.110Z ERROR [payment-service]     raise exc.TimeoutError(...)
+2026-11-13T14:04:26.110Z ERROR [payment-service] sqlalchemy.exc.TimeoutError: QueuePool limit of size 20 overflow 10 reached
+2026-11-13T14:04:29.306Z WARN  [db] PostgreSQL connection attempt exceeded 3000ms host=postgres-primary.payments.svc.cluster.local port=5432
+2026-11-13T14:04:30.901Z ERROR [http] GET /v1/payments/1042 500 duration_ms=5021 request_id=req-1062
+2026-11-13T14:04:33.040Z WARN  [health] GET /ready 503 reason=database_unavailable duration_ms=5002
+2026-11-13T14:04:38.043Z WARN  [health] GET /ready 503 reason=database_unavailable duration_ms=5001
+2026-11-13T14:04:43.046Z WARN  [health] GET /ready 503 reason=database_unavailable duration_ms=5002
+2026-11-13T14:04:48.050Z WARN  [memory] RSS=462MiB memory_limit=512MiB active_requests=143
+2026-11-13T14:04:50.172Z ERROR [db] psycopg2.OperationalError: connection to server at "postgres-primary.payments.svc.cluster.local" (10.96.42.18), port 5432 failed: timeout expired
+2026-11-13T14:04:52.019Z WARN  [memory] RSS=503MiB memory_limit=512MiB active_requests=161
+2026-11-13T14:04:53.101Z ERROR [http] POST /v1/payments 500 duration_ms=5101 request_id=req-1089
+2026-11-13T14:04:54.000Z INFO  [payment-api] No further application log output before container termination
+
+# kubectl describe pod payment-api-7d9f8c6b54-k2mqp -n payments (selected fields)
+Name:             payment-api-7d9f8c6b54-k2mqp
+Namespace:        payments
+Node:             worker-03
+Status:           Running
+Containers:
+  api:
+    State:          Running
+      Started:      Fri, 13 Nov 2026 14:05:04 +0000
+    Last State:     Terminated
+      Reason:       OOMKilled
+      Exit Code:    137
+      Finished:     Fri, 13 Nov 2026 14:04:55 +0000
+    Ready:          False
+    Restart Count:  3
+    Limits:
+      memory: 512Mi
+      cpu: 500m
+    Requests:
+      memory: 256Mi
+      cpu: 200m
+    Readiness: http-get http://:8080/ready delay=5s timeout=2s period=5s failure=3
+    Liveness:  http-get http://:8080/live delay=10s timeout=2s period=10s failure=3
+Events:
+  Type     Reason     Age   From               Message
+  ----     ------     ---   ----               -------
+  Warning  Unhealthy  55s   kubelet            Readiness probe failed: HTTP probe failed with statuscode: 503
+  Warning  BackOff    40s   kubelet            Back-off restarting failed container api
+  Normal   Pulled     31s   kubelet            Container image already present on machine
+  Normal   Started    30s   kubelet            Started container api
+
+# kubectl logs payment-api-7d9f8c6b54-k2mqp -n payments --previous (excerpt)
+2026-11-13T14:04:48.050Z WARN [memory] RSS=462MiB memory_limit=512MiB
+2026-11-13T14:04:52.019Z WARN [memory] RSS=503MiB memory_limit=512MiB
+2026-11-13T14:04:54.000Z INFO [payment-api] No further application log output before container termination
+
+# kubectl top pod -n payments (after restart)
+NAME                                CPU(cores)   MEMORY(bytes)
+payment-api-7d9f8c6b54-k2mqp        410m         348Mi
